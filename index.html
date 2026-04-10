@@ -288,8 +288,8 @@
 
     .steps {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2.5rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
       margin-top: 3.5rem;
     }
 
@@ -441,33 +441,425 @@
     }
 
     .social-card {
+      padding: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    /* ── Avatar circles with initials ── */
+    .avatar {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .avatar-sm {
+      width: 28px;
+      height: 28px;
+      font-size: 0.65rem;
+    }
+
+    /* ── BookTok / TikTok style card ── */
+    .social-tiktok {
+      background: #000;
+      color: #fff;
       padding: 1.25rem;
+      position: relative;
+    }
+
+    .social-tiktok .tt-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .social-tiktok .tt-username {
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .social-tiktok .tt-handle {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .social-tiktok .tt-body {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 0.75rem;
+    }
+
+    .social-tiktok .tt-stats {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .social-tiktok .tt-stats span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .social-tiktok .tt-stats .heart { color: #FE2C55; }
+
+    .social-tiktok .tt-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── Goodreads style card ── */
+    .social-goodreads {
+      padding: 1.25rem;
+    }
+
+    .social-goodreads .gr-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .social-goodreads .gr-reviewer {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .social-goodreads .gr-detail {
+      font-size: 0.68rem;
+      color: var(--mid-gray);
+    }
+
+    .social-goodreads .gr-stars {
+      display: flex;
+      gap: 0.15rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .social-goodreads .gr-stars .star {
+      color: #F5A623;
+      font-size: 1rem;
+    }
+
+    .social-goodreads .gr-stars .star.empty {
+      color: var(--border);
+    }
+
+    .social-goodreads .gr-body {
+      font-family: var(--serif);
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.65;
+      margin-bottom: 0.6rem;
+    }
+
+    .social-goodreads .gr-footer {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.68rem;
+      color: var(--mid-gray);
+    }
+
+    .social-goodreads .gr-platform {
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #372213;
+      background: #F4F1EA;
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── Reddit style card ── */
+    .social-reddit {
+      padding: 0;
+      display: flex;
+    }
+
+    .social-reddit .reddit-vote {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      padding: 1rem 0.6rem;
+      background: var(--off-white);
+      border-right: 1px solid var(--border);
+      min-width: 48px;
+    }
+
+    .social-reddit .reddit-vote .arrow-up {
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 8px solid #FF4500;
+      cursor: pointer;
+    }
+
+    .social-reddit .reddit-vote .arrow-down {
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 8px solid var(--border);
+    }
+
+    .social-reddit .reddit-vote .vote-count {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .social-reddit .reddit-content {
+      padding: 1rem 1.25rem;
+      flex: 1;
+    }
+
+    .social-reddit .reddit-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.68rem;
+      color: var(--mid-gray);
+      margin-bottom: 0.5rem;
+    }
+
+    .social-reddit .reddit-sub {
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .social-reddit .reddit-body {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.65;
+      margin-bottom: 0.6rem;
+    }
+
+    .social-reddit .reddit-actions {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--mid-gray);
+    }
+
+    /* ── Charts & Visualizations ── */
+    .chart-card {
+      padding: 1.5rem;
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 10px;
     }
 
-    .social-card .platform {
+    .chart-card .chart-title {
       font-size: 0.7rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-
-    .social-card .quote {
-      font-family: var(--serif);
-      font-size: 0.95rem;
-      font-style: italic;
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    .social-card .persona {
-      font-size: 0.75rem;
       color: var(--mid-gray);
-      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Star distribution bar chart */
+    .star-dist {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .star-dist-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .star-dist-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text);
+      min-width: 38px;
+      text-align: right;
+    }
+
+    .star-dist-bar-bg {
+      flex: 1;
+      height: 14px;
+      background: var(--light-gray);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .star-dist-bar {
+      height: 100%;
+      border-radius: 3px;
+      background: #F5A623;
+      transition: width 0.8s ease;
+    }
+
+    .star-dist-pct {
+      font-size: 0.68rem;
+      color: var(--mid-gray);
+      min-width: 32px;
+    }
+
+    /* Donut chart */
+    .donut-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .donut-chart {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      flex-shrink: 0;
+    }
+
+    .donut-chart svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    .donut-chart circle {
+      fill: none;
+      stroke-width: 10;
+    }
+
+    .donut-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .donut-center .donut-value {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1;
+    }
+
+    .donut-center .donut-sub {
+      font-size: 0.55rem;
+      color: var(--mid-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .donut-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .donut-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      color: var(--text);
+    }
+
+    .donut-legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* Genre comparison bar */
+    .genre-compare {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .genre-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .genre-row-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .genre-row-bar-bg {
+      height: 10px;
+      background: var(--light-gray);
+      border-radius: 5px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .genre-row-bar {
+      height: 100%;
+      border-radius: 5px;
+      transition: width 0.8s ease;
+    }
+
+    .genre-row-bar.book { background: var(--accent); }
+    .genre-row-bar.avg { background: var(--border); }
+
+    .genre-legend {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.25rem;
+    }
+
+    .genre-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.68rem;
+      color: var(--mid-gray);
+    }
+
+    .genre-legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .report-charts {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
 
     /* ── PRIVACY ── */
@@ -785,8 +1177,13 @@
     footer a:hover { color: #fff; }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 900px) {
-      .steps,
       .features-grid,
       .pricing-grid,
       .accuracy-flow {
@@ -822,11 +1219,17 @@
       section { padding: 4rem 1.5rem; }
       .hero { padding: 8rem 1.5rem 4rem; }
 
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
       .report-metrics { grid-template-columns: 1fr 1fr; }
 
       .accuracy-flow { grid-template-columns: 1fr 1fr; }
 
       .pricing-grid { gap: 1rem; }
+
+      .donut-wrap { flex-direction: column; align-items: flex-start; }
     }
 
     @media (max-width: 480px) {
@@ -904,8 +1307,8 @@
   <section class="how-it-works" id="how">
     <div class="section-inner">
       <p class="section-label">How It Works</p>
-      <h2 class="section-title">Three Steps to Reader Intelligence</h2>
-      <p class="section-desc">Upload your manuscript. We simulate the audience. You get the intelligence.</p>
+      <h2 class="section-title">Four Steps to Reader Intelligence</h2>
+      <p class="section-desc">Upload your manuscript. We simulate the audience. You get the intelligence — and a playbook to act on it.</p>
       <div class="steps">
         <div class="step fade-up">
           <div class="step-number">1</div>
@@ -921,6 +1324,11 @@
           <div class="step-number">3</div>
           <h3>Receive Your Forecast</h3>
           <p>Get a comprehensive intelligence report: predicted ratings, simulated social posts, influencer matches, launch recommendations, and specific manuscript feedback — all within 24 hours.</p>
+        </div>
+        <div class="step fade-up">
+          <div class="step-number">4</div>
+          <h3>Act on Your Playbook</h3>
+          <p>We don't just hand you data — we tell you exactly what to do next. Specific manuscript adjustments, influencer outreach strategy, optimal launch timing, and marketing angle recommendations tailored to your book's unique strengths.</p>
         </div>
       </div>
     </div>
@@ -974,53 +1382,204 @@
       <h2 class="section-title">What a Report Looks Like</h2>
       <p class="section-desc">Here's a preview of the intelligence delivered for a sample title.</p>
       <div class="report-grid">
-        <div class="report-metrics fade-up">
-          <div class="metric-card highlight">
-            <div class="metric-label">Predicted Rating</div>
-            <div class="metric-value">3.9</div>
-            <div class="metric-detail">out of 5.0 across 10,000 simulated readers</div>
+        <!-- LEFT: Charts & Metrics -->
+        <div class="report-charts fade-up">
+          <!-- Predicted Rating + Star Distribution -->
+          <div class="chart-card">
+            <div class="chart-title">Rating Distribution (10,000 Simulated Readers)</div>
+            <div style="display:flex;align-items:center;gap:1.25rem;margin-bottom:1rem;">
+              <div style="text-align:center;">
+                <div style="font-family:var(--serif);font-size:2.4rem;font-weight:700;color:var(--text-dark);line-height:1;">3.9</div>
+                <div style="font-size:0.65rem;color:var(--mid-gray);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.15rem;">Predicted</div>
+              </div>
+              <div class="star-dist" style="flex:1;">
+                <div class="star-dist-row">
+                  <span class="star-dist-label">5 &#9733;</span>
+                  <div class="star-dist-bar-bg"><div class="star-dist-bar" style="width:28%;"></div></div>
+                  <span class="star-dist-pct">28%</span>
+                </div>
+                <div class="star-dist-row">
+                  <span class="star-dist-label">4 &#9733;</span>
+                  <div class="star-dist-bar-bg"><div class="star-dist-bar" style="width:39%;"></div></div>
+                  <span class="star-dist-pct">39%</span>
+                </div>
+                <div class="star-dist-row">
+                  <span class="star-dist-label">3 &#9733;</span>
+                  <div class="star-dist-bar-bg"><div class="star-dist-bar" style="width:21%;"></div></div>
+                  <span class="star-dist-pct">21%</span>
+                </div>
+                <div class="star-dist-row">
+                  <span class="star-dist-label">2 &#9733;</span>
+                  <div class="star-dist-bar-bg"><div class="star-dist-bar" style="width:8%;"></div></div>
+                  <span class="star-dist-pct">8%</span>
+                </div>
+                <div class="star-dist-row">
+                  <span class="star-dist-label">1 &#9733;</span>
+                  <div class="star-dist-bar-bg"><div class="star-dist-bar" style="width:4%;"></div></div>
+                  <span class="star-dist-pct">4%</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="metric-card">
-            <div class="metric-label">Viral Potential</div>
-            <div class="metric-value">78%</div>
-            <div class="metric-detail">High BookTok pickup probability</div>
+
+          <!-- Sentiment Donut Chart -->
+          <div class="chart-card">
+            <div class="chart-title">Platform Sentiment Analysis</div>
+            <div class="donut-wrap">
+              <div class="donut-chart">
+                <svg viewBox="0 0 42 42">
+                  <!-- Background ring -->
+                  <circle cx="21" cy="21" r="15.9" stroke="var(--light-gray)" />
+                  <!-- Negative: 12% = 12 of 100 circumference -->
+                  <circle cx="21" cy="21" r="15.9" stroke="#EF4444" stroke-dasharray="12 88" stroke-dashoffset="0" />
+                  <!-- Neutral: 22% -->
+                  <circle cx="21" cy="21" r="15.9" stroke="#F59E0B" stroke-dasharray="22 78" stroke-dashoffset="-12" />
+                  <!-- Positive: 66% -->
+                  <circle cx="21" cy="21" r="15.9" stroke="#10B981" stroke-dasharray="66 34" stroke-dashoffset="-34" />
+                </svg>
+                <div class="donut-center">
+                  <span class="donut-value">66%</span>
+                  <span class="donut-sub">Positive</span>
+                </div>
+              </div>
+              <div class="donut-legend">
+                <div class="donut-legend-item">
+                  <span class="donut-legend-dot" style="background:#10B981;"></span>
+                  Positive &mdash; 66%
+                </div>
+                <div class="donut-legend-item">
+                  <span class="donut-legend-dot" style="background:#F59E0B;"></span>
+                  Neutral &mdash; 22%
+                </div>
+                <div class="donut-legend-item">
+                  <span class="donut-legend-dot" style="background:#EF4444;"></span>
+                  Negative &mdash; 12%
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="metric-card">
-            <div class="metric-label">DNF Risk</div>
-            <div class="metric-value">12%</div>
-            <div class="metric-detail">Flagged: pacing in chapters 11-13</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-label">Controversy Risk</div>
-            <div class="metric-value">Low</div>
-            <div class="metric-detail">No significant sensitivity flags</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-label">Genre Fit</div>
-            <div class="metric-value">94%</div>
-            <div class="metric-detail">Strong contemporary romance signals</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-label">Purchase Intent</div>
-            <div class="metric-value">67%</div>
-            <div class="metric-detail">Based on description + sample chapters</div>
+
+          <!-- Genre Comparison -->
+          <div class="chart-card">
+            <div class="chart-title">Performance vs. Genre Average</div>
+            <div class="genre-compare">
+              <div class="genre-row">
+                <div class="genre-row-label"><span>Emotional Impact</span><span style="color:var(--accent);font-weight:600;">92%</span></div>
+                <div class="genre-row-bar-bg">
+                  <div class="genre-row-bar book" style="width:92%;"></div>
+                </div>
+                <div class="genre-row-bar-bg" style="margin-top:3px;">
+                  <div class="genre-row-bar avg" style="width:71%;"></div>
+                </div>
+              </div>
+              <div class="genre-row">
+                <div class="genre-row-label"><span>Pacing</span><span style="color:var(--accent);font-weight:600;">78%</span></div>
+                <div class="genre-row-bar-bg">
+                  <div class="genre-row-bar book" style="width:78%;"></div>
+                </div>
+                <div class="genre-row-bar-bg" style="margin-top:3px;">
+                  <div class="genre-row-bar avg" style="width:74%;"></div>
+                </div>
+              </div>
+              <div class="genre-row">
+                <div class="genre-row-label"><span>Character Depth</span><span style="color:var(--accent);font-weight:600;">88%</span></div>
+                <div class="genre-row-bar-bg">
+                  <div class="genre-row-bar book" style="width:88%;"></div>
+                </div>
+                <div class="genre-row-bar-bg" style="margin-top:3px;">
+                  <div class="genre-row-bar avg" style="width:65%;"></div>
+                </div>
+              </div>
+              <div class="genre-row">
+                <div class="genre-row-label"><span>Re-read Potential</span><span style="color:var(--accent);font-weight:600;">71%</span></div>
+                <div class="genre-row-bar-bg">
+                  <div class="genre-row-bar book" style="width:71%;"></div>
+                </div>
+                <div class="genre-row-bar-bg" style="margin-top:3px;">
+                  <div class="genre-row-bar avg" style="width:52%;"></div>
+                </div>
+              </div>
+              <div class="genre-legend">
+                <span><span class="genre-legend-dot" style="background:var(--accent);"></span> This Book</span>
+                <span><span class="genre-legend-dot" style="background:var(--border);"></span> Genre Average</span>
+              </div>
+            </div>
           </div>
         </div>
+
+        <!-- RIGHT: Simulated Social Posts -->
         <div class="report-social fade-up">
+          <!-- BookTok / TikTok card -->
           <div class="social-card">
-            <div class="platform">Simulated BookTok</div>
-            <div class="quote">"Okay I was NOT expecting to cry at a book about a dating algorithm but here we are. The chapter 18 twist had me physically gasp. Adding to my 'books that wrecked me' shelf."</div>
-            <div class="persona">@romance_reader_maya / 24 / Heavy BookTok user / Romance + Sci-Fi</div>
+            <div class="social-tiktok">
+              <span class="tt-badge">Simulated BookTok</span>
+              <div class="tt-header">
+                <div class="avatar" style="background: linear-gradient(135deg, #FE2C55, #FF6F61);">MR</div>
+                <div>
+                  <div class="tt-username">maya_reads</div>
+                  <div class="tt-handle">@romance_reader_maya</div>
+                </div>
+              </div>
+              <div class="tt-body">Okay I was NOT expecting to cry at a book about a dating algorithm but here we are. The chapter 18 twist had me physically gasp. Adding to my &ldquo;books that wrecked me&rdquo; shelf.</div>
+              <div class="tt-stats">
+                <span>&#9654; 284K views</span>
+                <span class="heart">&#9829; 41.2K</span>
+                <span>&#128172; 1,847</span>
+                <span>&#8618; 8,204</span>
+              </div>
+            </div>
           </div>
+
+          <!-- Goodreads card -->
           <div class="social-card">
-            <div class="platform">Simulated Goodreads</div>
-            <div class="quote">"A sharp, modern take on enemies-to-lovers with genuine things to say about tech ethics. The Senate hearing subplot felt timely without being preachy. Solid 4 stars."</div>
-            <div class="persona">Sarah K. / 34 / 200+ books/year / Literary fiction crossover</div>
+            <div class="social-goodreads">
+              <span class="gr-platform">Simulated Goodreads</span>
+              <div class="gr-header">
+                <div class="avatar avatar-sm" style="background:#7C3AED;">SK</div>
+                <div>
+                  <div class="gr-reviewer">Sarah K.</div>
+                  <div class="gr-detail">247 books read this year</div>
+                </div>
+              </div>
+              <div class="gr-stars">
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star empty">&#9733;</span>
+              </div>
+              <div class="gr-body">&ldquo;A sharp, modern take on enemies-to-lovers with genuine things to say about tech ethics. The Senate hearing subplot felt timely without being preachy. Solid 4 stars.&rdquo;</div>
+              <div class="gr-footer">
+                <span>Literary fiction crossover &middot; 34</span>
+                <span>42 likes &middot; 7 comments</span>
+              </div>
+            </div>
           </div>
+
+          <!-- Reddit card -->
           <div class="social-card">
-            <div class="platform">Simulated Reddit r/romancebooks</div>
-            <div class="quote">"If you liked The Kiss Quotient but wished it had more Black Mirror energy, this is your book. The forced proximity setup is a little contrived but the payoff is worth it."</div>
-            <div class="persona">u/page_turner_92 / 29 / Moderate reader / Genre-aware</div>
+            <div class="social-reddit">
+              <div class="reddit-vote">
+                <div class="arrow-up"></div>
+                <div class="vote-count">847</div>
+                <div class="arrow-down"></div>
+              </div>
+              <div class="reddit-content">
+                <div class="reddit-meta">
+                  <span class="reddit-sub">r/romancebooks</span>
+                  <span>&middot;</span>
+                  <span>Posted by u/page_turner_92</span>
+                  <span>&middot;</span>
+                  <span style="font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--mid-gray);opacity:0.6;">Simulated</span>
+                </div>
+                <div class="reddit-body">If you liked The Kiss Quotient but wished it had more Black Mirror energy, this is your book. The forced proximity setup is a little contrived but the payoff is worth it.</div>
+                <div class="reddit-actions">
+                  <span>&#128172; 134 comments</span>
+                  <span>&#8618; Share</span>
+                  <span>&#9733; Save</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
