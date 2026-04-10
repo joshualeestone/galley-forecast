@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galley Forecast — Predictive Reader Intelligence | Book.IO</title>
+  <meta name="description" content="Predictive reader intelligence before your first ARC goes out. Know how readers will react — before they read. Powered by Book.IO.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --white: #FFFFFF;
+      --off-white: #FAFAFA;
+      --light-gray: #F4F4F5;
+      --border: #E4E4E7;
+      --mid-gray: #A1A1AA;
+      --text-light: #71717A;
+      --text: #27272A;
+      --text-dark: #18181B;
+      --navy: #0F172A;
+      --deep-navy: #020617;
+      --accent: #2563EB;
+      --accent-dark: #1D4ED8;
+      --accent-light: #DBEAFE;
+      --emerald: #059669;
+      --emerald-light: #D1FAE5;
+      --amber: #D97706;
+      --amber-light: #FEF3C7;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+
+    .nav-brand h1 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-brand .powered {
+      font-size: 0.65rem;
+      color: var(--mid-gray);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text-dark); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.6rem 1.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      font-family: var(--sans);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover { border-color: var(--text); }
+
+    .btn-large {
+      padding: 0.9rem 2.2rem;
+      font-size: 0.95rem;
+      border-radius: 10px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 5px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--text);
+      transition: all 0.3s;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 10rem 2rem 6rem;
+      text-align: center;
+      background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+    }
+
+    .hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 100px;
+      margin-bottom: 2rem;
+      letter-spacing: 0.03em;
+    }
+
+    .hero h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-proof {
+      margin-top: 3.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .proof-stat {
+      text-align: center;
+    }
+
+    .proof-stat .number {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .proof-stat .label {
+      font-size: 0.75rem;
+      color: var(--mid-gray);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.25rem;
+    }
+
+    /* ── SECTION BASE ── */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      max-width: 600px;
+      line-height: 1.8;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-it-works {
+      background: var(--white);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .step {
+      position: relative;
+      padding: 2rem;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .step:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 24px rgba(37, 99, 235, 0.08);
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 10px;
+      margin-bottom: 1.25rem;
+    }
+
+    .step h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.6rem;
+    }
+
+    .step p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* ── FEATURES ── */
+    .features {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .features .section-label { color: rgba(255,255,255,0.5); }
+    .features .section-title { color: #fff; }
+    .features .section-desc { color: rgba(255,255,255,0.6); }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .feature-card {
+      padding: 2rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .feature-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.15);
+    }
+
+    .feature-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+    }
+
+    /* ── REPORT PREVIEW ── */
+    .report-preview {
+      background: var(--light-gray);
+    }
+
+    .report-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+
+    .report-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .metric-card {
+      padding: 1.5rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .metric-card .metric-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--mid-gray);
+      margin-bottom: 0.5rem;
+    }
+
+    .metric-card .metric-value {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .metric-card .metric-detail {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: 0.25rem;
+    }
+
+    .metric-card.highlight {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, var(--white), var(--accent-light));
+    }
+
+    .report-social {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .social-card {
+      padding: 1.25rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .social-card .platform {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .social-card .quote {
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .social-card .persona {
+      font-size: 0.75rem;
+      color: var(--mid-gray);
+      margin-top: 0.5rem;
+    }
+
+    /* ── PRIVACY ── */
+    .privacy {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .privacy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .privacy-points {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .privacy-point {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .privacy-check {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      background: var(--emerald-light);
+      color: var(--emerald);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .privacy-point h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.2rem;
+    }
+
+    .privacy-point p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .privacy-seal {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3rem;
+      text-align: center;
+    }
+
+    .seal-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .privacy-seal h3 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text-dark);
+    }
+
+    .privacy-seal p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* ── ACCURACY ── */
+    .accuracy {
+      background: var(--deep-navy);
+      color: #fff;
+    }
+
+    .accuracy .section-label { color: var(--emerald); }
+    .accuracy .section-title { color: #fff; }
+
+    .accuracy-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .accuracy-desc {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+      margin-bottom: 3rem;
+    }
+
+    .accuracy-flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .flow-step {
+      padding: 1.5rem 1rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .flow-step .flow-num {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--emerald);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.5rem;
+    }
+
+    .flow-step p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.5;
+    }
+
+    /* ── PRICING ── */
+    .pricing {
+      background: var(--light-gray);
+    }
+
+    .pricing-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+      text-align: left;
+    }
+
+    .price-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2.5rem 2rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .price-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+    }
+
+    .price-card.featured {
+      border-color: var(--accent);
+      box-shadow: 0 8px 32px rgba(37, 99, 235, 0.1);
+      position: relative;
+    }
+
+    .price-card.featured::before {
+      content: 'MOST POPULAR';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 0.3rem 1rem;
+      border-radius: 100px;
+    }
+
+    .price-tier {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--mid-gray);
+      margin-bottom: 0.5rem;
+    }
+
+    .price-name {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .price-desc {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      min-height: 3rem;
+    }
+
+    .price-amount {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .price-amount span {
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--mid-gray);
+    }
+
+    .price-features {
+      list-style: none;
+      margin: 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .price-features li {
+      font-size: 0.85rem;
+      color: var(--text);
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .price-features li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      background: var(--emerald);
+      border-radius: 50%;
+    }
+
+    .price-card .btn { width: 100%; margin-top: 0.5rem; }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--white);
+      text-align: center;
+      padding: 7rem 2rem;
+    }
+
+    .cta-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cta-inner h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .cta-inner p {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--deep-navy);
+      color: rgba(255,255,255,0.4);
+      padding: 3rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-brand {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+    }
+
+    footer p {
+      font-size: 0.75rem;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: #fff; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .steps,
+      .features-grid,
+      .pricing-grid,
+      .accuracy-flow {
+        grid-template-columns: 1fr;
+      }
+
+      .report-grid,
+      .privacy-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .hero-proof { gap: 2rem; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(255,255,255,0.98);
+        backdrop-filter: blur(12px);
+        padding: 1.5rem 2rem;
+        gap: 1rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .hamburger { display: flex; }
+
+      section { padding: 4rem 1.5rem; }
+      .hero { padding: 8rem 1.5rem 4rem; }
+
+      .report-metrics { grid-template-columns: 1fr 1fr; }
+
+      .accuracy-flow { grid-template-columns: 1fr 1fr; }
+
+      .pricing-grid { gap: 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      .report-metrics { grid-template-columns: 1fr; }
+      .accuracy-flow { grid-template-columns: 1fr; }
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">
+        <h1>Galley Forecast</h1>
+        <span class="powered">by Book.IO</span>
+      </a>
+      <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#report">Sample Report</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact" class="btn btn-primary">Request Demo</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Pre-Publication Intelligence Platform</div>
+      <h2>Predictive Reader Intelligence<br>Before Your First <em>ARC</em> Goes Out</h2>
+      <p class="hero-sub">Simulate thousands of readers reacting to your manuscript across BookTok, Goodreads, Reddit, and X. Know how your book will perform — before you spend a dollar on marketing.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary btn-large">Request a Demo</a>
+        <a href="#how" class="btn btn-outline btn-large">See How It Works</a>
+      </div>
+      <div class="hero-proof">
+        <div class="proof-stat">
+          <div class="number">10,000+</div>
+          <div class="label">Simulated Readers</div>
+        </div>
+        <div class="proof-stat">
+          <div class="number">5</div>
+          <div class="label">Platform Forecasts</div>
+        </div>
+        <div class="proof-stat">
+          <div class="number">&lt; 24hr</div>
+          <div class="label">Turnaround</div>
+        </div>
+        <div class="proof-stat">
+          <div class="number">0</div>
+          <div class="label">Data Retained</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works" id="how">
+    <div class="section-inner">
+      <p class="section-label">How It Works</p>
+      <h2 class="section-title">Three Steps to Reader Intelligence</h2>
+      <p class="section-desc">Upload your manuscript. We simulate the audience. You get the intelligence.</p>
+      <div class="steps">
+        <div class="step fade-up">
+          <div class="step-number">1</div>
+          <h3>Upload Your Manuscript</h3>
+          <p>Upload an EPUB, PDF, or Word document. Our system extracts themes, narrative structure, character dynamics, and genre signals — then immediately destroys the source file.</p>
+        </div>
+        <div class="step fade-up">
+          <div class="step-number">2</div>
+          <h3>Simulate Your Audience</h3>
+          <p>Thousands of AI reader personas — each with unique tastes, reading habits, and review styles — independently react to your book. Then they react to each other, creating authentic social dynamics.</p>
+        </div>
+        <div class="step fade-up">
+          <div class="step-number">3</div>
+          <h3>Receive Your Forecast</h3>
+          <p>Get a comprehensive intelligence report: predicted ratings, simulated social posts, influencer matches, launch recommendations, and specific manuscript feedback — all within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="section-inner">
+      <p class="section-label">What You Get</p>
+      <h2 class="section-title">Intelligence That Changes<br>How You Launch</h2>
+      <p class="section-desc">Every forecast delivers actionable intelligence across six dimensions.</p>
+      <div class="features-grid">
+        <div class="feature-card fade-up">
+          <div class="feature-icon">&#9733;</div>
+          <h3>Predictive Star Ratings</h3>
+          <p>Projected Goodreads scores, Amazon ratings, and platform-specific sentiment broken down by reader demographic. Know your number before the first review drops.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="feature-icon">&#9881;</div>
+          <h3>Simulated Social Reception</h3>
+          <p>See realistic BookTok reactions, Reddit threads, Bookstagram posts, and X discourse. Understand how readers will talk about your book — and to each other.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="feature-icon">&#8599;</div>
+          <h3>Influencer &amp; Publisher Matching</h3>
+          <p>Discover which real BookTok creators, bookstagrammers, and reviewers have the highest audience overlap with your title. Plus publisher recommendations for indie authors.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="feature-icon">&#9888;</div>
+          <h3>Controversy &amp; Sensitivity Radar</h3>
+          <p>Flag potential backlash vectors, sensitivity concerns, and polarizing elements before they become public. Address issues on your terms, not Twitter's.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="feature-icon">&#9998;</div>
+          <h3>Manuscript Intelligence</h3>
+          <p>Identify pacing issues, DNF risk points, and narrative elements that simulated readers consistently flagged. Strengthen your manuscript before it reaches real readers.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="feature-icon">&#10140;</div>
+          <h3>Launch Strategy Playbook</h3>
+          <p>Receive a tailored launch plan: optimal timing, platform prioritization, marketing angle recommendations, and specific next steps to maximize your book's trajectory.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REPORT PREVIEW -->
+  <section class="report-preview" id="report">
+    <div class="section-inner">
+      <p class="section-label">Sample Forecast</p>
+      <h2 class="section-title">What a Report Looks Like</h2>
+      <p class="section-desc">Here's a preview of the intelligence delivered for a sample title.</p>
+      <div class="report-grid">
+        <div class="report-metrics fade-up">
+          <div class="metric-card highlight">
+            <div class="metric-label">Predicted Rating</div>
+            <div class="metric-value">3.9</div>
+            <div class="metric-detail">out of 5.0 across 10,000 simulated readers</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Viral Potential</div>
+            <div class="metric-value">78%</div>
+            <div class="metric-detail">High BookTok pickup probability</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">DNF Risk</div>
+            <div class="metric-value">12%</div>
+            <div class="metric-detail">Flagged: pacing in chapters 11-13</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Controversy Risk</div>
+            <div class="metric-value">Low</div>
+            <div class="metric-detail">No significant sensitivity flags</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Genre Fit</div>
+            <div class="metric-value">94%</div>
+            <div class="metric-detail">Strong contemporary romance signals</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Purchase Intent</div>
+            <div class="metric-value">67%</div>
+            <div class="metric-detail">Based on description + sample chapters</div>
+          </div>
+        </div>
+        <div class="report-social fade-up">
+          <div class="social-card">
+            <div class="platform">Simulated BookTok</div>
+            <div class="quote">"Okay I was NOT expecting to cry at a book about a dating algorithm but here we are. The chapter 18 twist had me physically gasp. Adding to my 'books that wrecked me' shelf."</div>
+            <div class="persona">@romance_reader_maya / 24 / Heavy BookTok user / Romance + Sci-Fi</div>
+          </div>
+          <div class="social-card">
+            <div class="platform">Simulated Goodreads</div>
+            <div class="quote">"A sharp, modern take on enemies-to-lovers with genuine things to say about tech ethics. The Senate hearing subplot felt timely without being preachy. Solid 4 stars."</div>
+            <div class="persona">Sarah K. / 34 / 200+ books/year / Literary fiction crossover</div>
+          </div>
+          <div class="social-card">
+            <div class="platform">Simulated Reddit r/romancebooks</div>
+            <div class="quote">"If you liked The Kiss Quotient but wished it had more Black Mirror energy, this is your book. The forced proximity setup is a little contrived but the payoff is worth it."</div>
+            <div class="persona">u/page_turner_92 / 29 / Moderate reader / Genre-aware</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVACY -->
+  <section class="privacy" id="privacy">
+    <div class="section-inner">
+      <div class="privacy-grid">
+        <div>
+          <p class="section-label">Data Protection</p>
+          <h2 class="section-title">Your Manuscript Is Sacred.<br>We Treat It That Way.</h2>
+          <div class="privacy-points">
+            <div class="privacy-point fade-up">
+              <div class="privacy-check">&check;</div>
+              <div>
+                <h4>Zero Retention</h4>
+                <p>Your manuscript is processed, then permanently destroyed. No copies, no backups, no exceptions.</p>
+              </div>
+            </div>
+            <div class="privacy-point fade-up">
+              <div class="privacy-check">&check;</div>
+              <div>
+                <h4>Never Used for Training</h4>
+                <p>Your content is never used to train, fine-tune, or improve any AI model. We use API providers with contractual no-training guarantees.</p>
+              </div>
+            </div>
+            <div class="privacy-point fade-up">
+              <div class="privacy-check">&check;</div>
+              <div>
+                <h4>Feature Extraction Architecture</h4>
+                <p>We extract themes and structure locally, then simulate from metadata — not your raw text. Your words never leave the analysis pipeline.</p>
+              </div>
+            </div>
+            <div class="privacy-point fade-up">
+              <div class="privacy-check">&check;</div>
+              <div>
+                <h4>Enterprise Private Deployment</h4>
+                <p>Publisher Pro customers can run Galley Forecast on their own infrastructure. Your manuscript never touches our servers.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="privacy-seal fade-up">
+          <div class="seal-icon">&#128274;</div>
+          <h3>Publisher-Grade<br>Data Protection</h3>
+          <p>Built for publishers who can't afford to compromise on intellectual property. Every architectural decision prioritizes your manuscript's security over our convenience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCURACY FLYWHEEL -->
+  <section class="accuracy" id="accuracy">
+    <div class="accuracy-inner">
+      <p class="section-label">Post-Launch Tracking</p>
+      <h2 class="section-title">We Prove Our Predictions</h2>
+      <p class="accuracy-desc">Galley Forecast doesn't stop at prediction. Our Publisher Pro tier includes post-launch reception tracking that compares our forecast to real-world results — building a transparent accuracy record you can trust.</p>
+      <div class="accuracy-flow">
+        <div class="flow-step fade-up">
+          <div class="flow-num">Pre-Launch</div>
+          <p>We predict: 3.9 stars, high BookTok pickup, low controversy</p>
+        </div>
+        <div class="flow-step fade-up">
+          <div class="flow-num">Launch</div>
+          <p>Your book goes live with a data-backed marketing strategy</p>
+        </div>
+        <div class="flow-step fade-up">
+          <div class="flow-num">Post-Launch</div>
+          <p>We track real reception across Goodreads, BookTok, Reddit, and X</p>
+        </div>
+        <div class="flow-step fade-up">
+          <div class="flow-num">Report Back</div>
+          <p>Predicted vs. actual comparison with rolling accuracy score</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="pricing-inner">
+      <p class="section-label">Pricing</p>
+      <h2 class="section-title">Intelligence at Every Scale</h2>
+      <p class="section-desc" style="margin: 0 auto;">From indie authors testing a concept to major publishers forecasting their entire catalog.</p>
+      <div class="pricing-grid">
+        <div class="price-card fade-up">
+          <div class="price-tier">Starter</div>
+          <div class="price-name">Quick Read</div>
+          <p class="price-desc">A fast viability check for your manuscript concept.</p>
+          <div class="price-amount">Free</div>
+          <ul class="price-features">
+            <li>Genre fit analysis</li>
+            <li>Basic sentiment score</li>
+            <li>2-3 paragraph summary</li>
+            <li>High-level audience profile</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline" style="width:100%">Get Started</a>
+        </div>
+        <div class="price-card featured fade-up">
+          <div class="price-tier">Professional</div>
+          <div class="price-name">Full Forecast</div>
+          <p class="price-desc">Complete predictive intelligence for a single title.</p>
+          <div class="price-amount">$199 <span>/ title</span></div>
+          <ul class="price-features">
+            <li>10,000 simulated readers</li>
+            <li>Star rating predictions</li>
+            <li>Simulated social posts</li>
+            <li>Influencer matching</li>
+            <li>Manuscript feedback</li>
+            <li>Launch strategy playbook</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary" style="width:100%">Request Demo</a>
+        </div>
+        <div class="price-card fade-up">
+          <div class="price-tier">Enterprise</div>
+          <div class="price-name">Publisher Pro</div>
+          <p class="price-desc">Full-catalog intelligence with post-launch tracking.</p>
+          <div class="price-amount">Custom</div>
+          <ul class="price-features">
+            <li>Unlimited title forecasts</li>
+            <li>Post-launch reception tracking</li>
+            <li>Predicted vs. actual reporting</li>
+            <li>Private deployment option</li>
+            <li>API access</li>
+            <li>Dedicated account manager</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline" style="width:100%">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="cta-inner">
+      <h2>Ready to Forecast<br>Your Next Launch?</h2>
+      <p>Join publishers who make data-driven decisions before their ARC goes out. Request a demo and see what Galley Forecast reveals about your next title.</p>
+      <a href="mailto:hello@book.io" class="btn btn-primary btn-large">Request a Demo</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Galley Forecast</div>
+      <p>&copy; 2026 Book.IO &nbsp;&middot;&nbsp; <a href="mailto:hello@book.io">hello@book.io</a> &nbsp;&middot;&nbsp; Pre-Publication Intelligence</p>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
