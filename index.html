@@ -1597,6 +1597,234 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* ── Deep Analytics Sub-section ── */
+    .deep-analytics-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2.5rem 0 1.5rem;
+    }
+
+    .deep-analytics-divider::before,
+    .deep-analytics-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .deep-analytics-divider span {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    /* ── Two-column analytics row ── */
+    .analytics-row-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .analytics-row-2col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── Full-width analytics row ── */
+    .analytics-row-full {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    /* ── Venn Diagram ── */
+    .venn-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .venn-container svg text {
+      font-family: var(--sans);
+    }
+
+    /* ── Platform Reach Bars ── */
+    .platform-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .platform-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .platform-bar-name {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text);
+      min-width: 90px;
+      text-align: right;
+    }
+
+    .platform-bar-track {
+      flex: 1;
+      height: 18px;
+      background: var(--light-gray);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .platform-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: var(--accent);
+      transition: width 0.8s ease;
+    }
+
+    .platform-bar-pct {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      min-width: 36px;
+    }
+
+    /* ── Emotional Arc ── */
+    .emotional-arc-container {
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem 0;
+    }
+
+    .emotional-arc-container svg text {
+      font-family: var(--sans);
+    }
+
+    /* ── Demographics Donut (larger) ── */
+    .demo-donut-wrap {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .demo-donut-chart {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      flex-shrink: 0;
+    }
+
+    .demo-donut-chart svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    .demo-donut-chart circle {
+      fill: none;
+      stroke-width: 14;
+    }
+
+    .demo-donut-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .demo-donut-center .demo-value {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1;
+    }
+
+    .demo-donut-center .demo-sub {
+      font-size: 0.55rem;
+      color: var(--mid-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.2rem;
+    }
+
+    .demo-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .demo-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--text);
+    }
+
+    .demo-legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .demo-donut-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* ── Radar / Spider Chart ── */
+    .radar-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem 0;
+    }
+
+    .radar-container svg text {
+      font-family: var(--sans);
+    }
+
+    .radar-legend {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .radar-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      color: var(--text);
+    }
+
+    .radar-legend-line {
+      width: 20px;
+      height: 3px;
+      border-radius: 2px;
+    }
+
+    .radar-legend-line.dashed {
+      background: repeating-linear-gradient(90deg, #A1A1AA 0, #A1A1AA 4px, transparent 4px, transparent 7px);
+    }
   </style>
 </head>
 <body>
@@ -1879,6 +2107,326 @@
               <div class="genre-legend">
                 <span><span class="genre-legend-dot" style="background:var(--accent);"></span> This Book</span>
                 <span><span class="genre-legend-dot" style="background:var(--border);"></span> Genre Average</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DEEP ANALYTICS SUB-SECTION -->
+        <div class="deep-analytics-divider fade-up">
+          <span>Deep Analytics &mdash; Audience Intelligence</span>
+        </div>
+
+        <!-- Row 1: Venn Diagram + Platform Reach (2-col) -->
+        <div class="analytics-row-2col fade-up">
+
+          <!-- 1. Audience Venn Diagram -->
+          <div class="chart-card">
+            <div class="chart-title">Audience Overlap Analysis</div>
+            <div class="venn-container">
+              <svg viewBox="0 0 360 260" width="100%" style="max-width:360px;">
+                <!-- Circle 1: Romance Readers (pink/rose) -->
+                <circle cx="140" cy="120" r="80" fill="rgba(244,114,182,0.25)" stroke="#F472B6" stroke-width="2"/>
+                <!-- Circle 2: Tech/Sci-Fi Fans (blue) -->
+                <circle cx="220" cy="120" r="80" fill="rgba(96,165,250,0.25)" stroke="#60A5FA" stroke-width="2"/>
+                <!-- Circle 3: BookTok Active (purple) -->
+                <circle cx="180" cy="185" r="80" fill="rgba(167,139,250,0.25)" stroke="#A78BFA" stroke-width="2"/>
+
+                <!-- Labels for each circle -->
+                <text x="95" y="88" text-anchor="middle" fill="#BE185D" font-size="11" font-weight="600">Romance</text>
+                <text x="95" y="102" text-anchor="middle" fill="#BE185D" font-size="11" font-weight="600">Readers</text>
+                <text x="265" y="88" text-anchor="middle" fill="#2563EB" font-size="11" font-weight="600">Tech/Sci-Fi</text>
+                <text x="265" y="102" text-anchor="middle" fill="#2563EB" font-size="11" font-weight="600">Fans</text>
+                <text x="180" y="248" text-anchor="middle" fill="#7C3AED" font-size="11" font-weight="600">BookTok Active</text>
+
+                <!-- Center overlap highlight -->
+                <circle cx="180" cy="140" r="22" fill="rgba(37,99,235,0.15)" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4 2"/>
+                <text x="180" y="137" text-anchor="middle" fill="var(--accent)" font-size="9" font-weight="700">Sweet</text>
+                <text x="180" y="149" text-anchor="middle" fill="var(--accent)" font-size="9" font-weight="700">Spot</text>
+
+                <!-- Callout line -->
+                <line x1="200" y1="130" x2="285" y2="30" stroke="var(--accent)" stroke-width="1" stroke-dasharray="3 2"/>
+                <rect x="245" y="15" width="110" height="26" rx="6" fill="var(--accent)"/>
+                <text x="300" y="33" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">Your Audience</text>
+              </svg>
+            </div>
+          </div>
+
+          <!-- 2. Platform Reach Horizontal Bar Chart -->
+          <div class="chart-card">
+            <div class="chart-title">Predicted Platform Engagement</div>
+            <div class="platform-bars">
+              <div class="platform-bar-row">
+                <span class="platform-bar-name">BookTok</span>
+                <div class="platform-bar-track"><div class="platform-bar-fill" style="width:92%;background:#2563EB;"></div></div>
+                <span class="platform-bar-pct">92%</span>
+              </div>
+              <div class="platform-bar-row">
+                <span class="platform-bar-name">Goodreads</span>
+                <div class="platform-bar-track"><div class="platform-bar-fill" style="width:78%;background:#3B82F6;"></div></div>
+                <span class="platform-bar-pct">78%</span>
+              </div>
+              <div class="platform-bar-row">
+                <span class="platform-bar-name">Bookstagram</span>
+                <div class="platform-bar-track"><div class="platform-bar-fill" style="width:71%;background:#60A5FA;"></div></div>
+                <span class="platform-bar-pct">71%</span>
+              </div>
+              <div class="platform-bar-row">
+                <span class="platform-bar-name">StoryGraph</span>
+                <div class="platform-bar-track"><div class="platform-bar-fill" style="width:64%;background:#93C5FD;"></div></div>
+                <span class="platform-bar-pct">64%</span>
+              </div>
+              <div class="platform-bar-row">
+                <span class="platform-bar-name">Reddit</span>
+                <div class="platform-bar-track"><div class="platform-bar-fill" style="width:58%;background:#BFDBFE;"></div></div>
+                <span class="platform-bar-pct">58%</span>
+              </div>
+              <div class="platform-bar-row">
+                <span class="platform-bar-name">Amazon</span>
+                <div class="platform-bar-track"><div class="platform-bar-fill" style="width:52%;background:#DBEAFE;"></div></div>
+                <span class="platform-bar-pct">52%</span>
+              </div>
+              <div class="platform-bar-row">
+                <span class="platform-bar-name">X / Twitter</span>
+                <div class="platform-bar-track"><div class="platform-bar-fill" style="width:41%;background:#E4E4E7;"></div></div>
+                <span class="platform-bar-pct">41%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Emotional Arc (full width) -->
+        <div class="analytics-row-full fade-up">
+          <div class="chart-card">
+            <div class="chart-title">Predicted Emotional Arc</div>
+            <div class="emotional-arc-container">
+              <svg viewBox="0 0 640 280" width="100%" style="max-width:640px;">
+                <defs>
+                  <linearGradient id="arcGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#2563EB" stop-opacity="0.25"/>
+                    <stop offset="100%" stop-color="#2563EB" stop-opacity="0.02"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- Gridlines -->
+                <line x1="60" y1="30" x2="60" y2="230" stroke="#E4E4E7" stroke-width="1"/>
+                <line x1="60" y1="230" x2="610" y2="230" stroke="#E4E4E7" stroke-width="1"/>
+                <line x1="60" y1="180" x2="610" y2="180" stroke="#F4F4F5" stroke-width="1" stroke-dasharray="4 3"/>
+                <line x1="60" y1="130" x2="610" y2="130" stroke="#F4F4F5" stroke-width="1" stroke-dasharray="4 3"/>
+                <line x1="60" y1="80" x2="610" y2="80" stroke="#F4F4F5" stroke-width="1" stroke-dasharray="4 3"/>
+                <line x1="60" y1="30" x2="610" y2="30" stroke="#F4F4F5" stroke-width="1" stroke-dasharray="4 3"/>
+
+                <!-- Y-axis labels -->
+                <text x="50" y="234" text-anchor="end" fill="#A1A1AA" font-size="10">Low</text>
+                <text x="50" y="134" text-anchor="end" fill="#A1A1AA" font-size="10">Med</text>
+                <text x="50" y="34" text-anchor="end" fill="#A1A1AA" font-size="10">High</text>
+
+                <!-- X-axis chapter labels -->
+                <text x="89" y="250" text-anchor="middle" fill="#A1A1AA" font-size="9">Ch 1</text>
+                <text x="147" y="250" text-anchor="middle" fill="#A1A1AA" font-size="9">Ch 4</text>
+                <text x="205" y="250" text-anchor="middle" fill="#A1A1AA" font-size="9">Ch 6</text>
+                <text x="263" y="250" text-anchor="middle" fill="#A1A1AA" font-size="9">Ch 8</text>
+                <text x="321" y="250" text-anchor="middle" fill="#A1A1AA" font-size="9">Ch 10</text>
+                <text x="379" y="250" text-anchor="middle" fill="#A1A1AA" font-size="9">Ch 12</text>
+                <text x="437" y="250" text-anchor="middle" fill="#A1A1AA" font-size="9">Ch 14</text>
+                <text x="495" y="250" text-anchor="middle" fill="#A1A1AA" font-size="9">Ch 17</text>
+                <text x="553" y="250" text-anchor="middle" fill="#A1A1AA" font-size="9">Ch 19</text>
+                <text x="610" y="250" text-anchor="middle" fill="#A1A1AA" font-size="9">Ch 20</text>
+
+                <!-- Gradient fill under the line -->
+                <!-- Points: Ch1(89,150) Ch2(118,145) Ch3(147,140) Ch5(205,160) Ch6(220,165) Ch7(250,145) Ch8(263,130) Ch9(290,115) Ch10(321,100) Ch11(350,90) Ch12(379,85) Ch13(400,130) Ch14(437,110) Ch15(460,85) Ch16(475,70) Ch17(495,40) Ch18(515,38) Ch19(553,80) Ch20(610,110) -->
+                <polygon
+                  points="89,150 118,145 147,140 176,148 205,160 220,165 250,145 263,130 290,115 321,100 350,90 379,85 400,130 437,110 460,85 475,70 495,40 515,38 553,80 610,110 610,230 89,230"
+                  fill="url(#arcGradient)"
+                />
+
+                <!-- The line itself -->
+                <polyline
+                  points="89,150 118,145 147,140 176,148 205,160 220,165 250,145 263,130 290,115 321,100 350,90 379,85 400,130 437,110 460,85 475,70 495,40 515,38 553,80 610,110"
+                  fill="none"
+                  stroke="#2563EB"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+
+                <!-- DNF Risk Zone marker (Ch 12-13 dip) -->
+                <circle cx="400" cy="130" r="4" fill="#EF4444"/>
+                <line x1="400" y1="130" x2="430" y2="160" stroke="#EF4444" stroke-width="1"/>
+                <rect x="418" y="153" width="86" height="20" rx="4" fill="#EF4444"/>
+                <text x="461" y="167" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">DNF Risk Zone</text>
+
+                <!-- Emotional Peak marker (Ch 17-18) -->
+                <circle cx="495" cy="40" r="4" fill="#059669"/>
+                <line x1="495" y1="40" x2="530" y2="20" stroke="#059669" stroke-width="1"/>
+                <rect x="518" y="8" width="92" height="20" rx="4" fill="#059669"/>
+                <text x="564" y="22" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">Emotional Peak</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: Demographics Donut + Radar Chart (2-col) -->
+        <div class="analytics-row-2col fade-up">
+
+          <!-- 4. Audience Demographics Donut -->
+          <div class="chart-card">
+            <div class="chart-title">Predicted Reader Demographics</div>
+            <div class="demo-donut-wrap">
+              <div class="demo-donut-chart">
+                <svg viewBox="0 0 42 42">
+                  <!-- Background ring -->
+                  <circle cx="21" cy="21" r="15.9" stroke="var(--light-gray)"/>
+                  <!-- Women 18-34: 42% -->
+                  <circle cx="21" cy="21" r="15.9" stroke="#F472B6" stroke-dasharray="42 58" stroke-dashoffset="0"/>
+                  <!-- Women 35-54: 28% -->
+                  <circle cx="21" cy="21" r="15.9" stroke="#FB7185" stroke-dasharray="28 72" stroke-dashoffset="-42"/>
+                  <!-- Men 18-34: 14% -->
+                  <circle cx="21" cy="21" r="15.9" stroke="#60A5FA" stroke-dasharray="14 86" stroke-dashoffset="-70"/>
+                  <!-- Men 35-54: 8% -->
+                  <circle cx="21" cy="21" r="15.9" stroke="#93C5FD" stroke-dasharray="8 92" stroke-dashoffset="-84"/>
+                  <!-- Non-binary / Other: 5% -->
+                  <circle cx="21" cy="21" r="15.9" stroke="#A78BFA" stroke-dasharray="5 95" stroke-dashoffset="-92"/>
+                  <!-- 55+: 3% -->
+                  <circle cx="21" cy="21" r="15.9" stroke="#A1A1AA" stroke-dasharray="3 97" stroke-dashoffset="-97"/>
+                </svg>
+                <div class="demo-donut-center">
+                  <span class="demo-value">10K</span>
+                  <span class="demo-sub">Readers</span>
+                </div>
+              </div>
+              <div class="demo-legend">
+                <div class="demo-legend-item">
+                  <span class="demo-legend-dot" style="background:#F472B6;"></span>
+                  Women 18&ndash;34 &mdash; 42%
+                </div>
+                <div class="demo-legend-item">
+                  <span class="demo-legend-dot" style="background:#FB7185;"></span>
+                  Women 35&ndash;54 &mdash; 28%
+                </div>
+                <div class="demo-legend-item">
+                  <span class="demo-legend-dot" style="background:#60A5FA;"></span>
+                  Men 18&ndash;34 &mdash; 14%
+                </div>
+                <div class="demo-legend-item">
+                  <span class="demo-legend-dot" style="background:#93C5FD;"></span>
+                  Men 35&ndash;54 &mdash; 8%
+                </div>
+                <div class="demo-legend-item">
+                  <span class="demo-legend-dot" style="background:#A78BFA;"></span>
+                  Non-binary / Other &mdash; 5%
+                </div>
+                <div class="demo-legend-item">
+                  <span class="demo-legend-dot" style="background:#A1A1AA;"></span>
+                  55+ &mdash; 3%
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Comp Title Radar / Spider Chart -->
+          <div class="chart-card">
+            <div class="chart-title">Competitive Positioning</div>
+            <div class="radar-container">
+              <svg viewBox="0 0 320 280" width="100%" style="max-width:320px;">
+                <!-- Pentagon grid rings (5 levels) -->
+                <!-- Axes: Pacing(top), Romance Heat(top-right), Literary Merit(bottom-right), Commercial Appeal(bottom-left), Social Virality(top-left) -->
+                <!-- Center: 160, 135. Radius max: 100 -->
+                <!-- Angle offsets: -90, -18, 54, 126, 198 degrees -->
+                <!-- Points at radius r:
+                     Pacing:          160+r*cos(-90),  135+r*sin(-90)  = 160,        135-r
+                     Romance Heat:    160+r*cos(-18),  135+r*sin(-18)  = 160+0.951r, 135-0.309r
+                     Literary Merit:  160+r*cos(54),   135+r*sin(54)   = 160+0.588r, 135+0.809r
+                     Commercial:      160+r*cos(126),  135+r*sin(126)  = 160-0.588r, 135+0.809r
+                     Social Virality: 160+r*cos(198),  135+r*sin(198)  = 160-0.951r, 135-0.309r
+                -->
+
+                <!-- Grid ring r=100 (outermost) -->
+                <polygon points="160,35 255.1,104.1 218.8,215.9 101.2,215.9 64.9,104.1" fill="none" stroke="#E4E4E7" stroke-width="1"/>
+                <!-- Grid ring r=80 -->
+                <polygon points="160,55 236.1,110.3 207.0,199.7 113.0,199.7 83.9,110.3" fill="none" stroke="#F4F4F5" stroke-width="1"/>
+                <!-- Grid ring r=60 -->
+                <polygon points="160,75 217.1,116.5 195.3,183.5 124.7,183.5 102.9,116.5" fill="none" stroke="#F4F4F5" stroke-width="1"/>
+                <!-- Grid ring r=40 -->
+                <polygon points="160,95 198.0,122.6 183.5,167.4 136.5,167.4 122.0,122.6" fill="none" stroke="#F4F4F5" stroke-width="1"/>
+                <!-- Grid ring r=20 (innermost) -->
+                <polygon points="160,115 179.0,128.8 171.8,151.2 148.2,151.2 141.0,128.8" fill="none" stroke="#F4F4F5" stroke-width="1"/>
+
+                <!-- Axis lines from center to vertices -->
+                <line x1="160" y1="135" x2="160" y2="35" stroke="#E4E4E7" stroke-width="1"/>
+                <line x1="160" y1="135" x2="255.1" y2="104.1" stroke="#E4E4E7" stroke-width="1"/>
+                <line x1="160" y1="135" x2="218.8" y2="215.9" stroke="#E4E4E7" stroke-width="1"/>
+                <line x1="160" y1="135" x2="101.2" y2="215.9" stroke="#E4E4E7" stroke-width="1"/>
+                <line x1="160" y1="135" x2="64.9" y2="104.1" stroke="#E4E4E7" stroke-width="1"/>
+
+                <!-- Axis labels -->
+                <text x="160" y="22" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Pacing</text>
+                <text x="268" y="100" text-anchor="start" fill="var(--text)" font-size="10" font-weight="600">Romance</text>
+                <text x="268" y="112" text-anchor="start" fill="var(--text)" font-size="10" font-weight="600">Heat</text>
+                <text x="228" y="232" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Literary Merit</text>
+                <text x="88" y="232" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Commercial</text>
+                <text x="88" y="244" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Appeal</text>
+                <text x="42" y="100" text-anchor="end" fill="var(--text)" font-size="10" font-weight="600">Social</text>
+                <text x="42" y="112" text-anchor="end" fill="var(--text)" font-size="10" font-weight="600">Virality</text>
+
+                <!-- Data: The Algorithm of Us (blue filled) -->
+                <!-- Pacing: 75%, Romance: 82%, Literary: 70%, Commercial: 85%, Social: 90% -->
+                <!-- r values: 75, 82, 70, 85, 90 -->
+                <polygon
+                  points="160,60 238.0,109.7 201.2,191.6 110.0,203.7 74.4,107.2"
+                  fill="rgba(37,99,235,0.15)"
+                  stroke="#2563EB"
+                  stroke-width="2"
+                />
+                <!-- Data dots for Algorithm of Us -->
+                <circle cx="160" cy="60" r="3" fill="#2563EB"/>
+                <circle cx="238.0" cy="109.7" r="3" fill="#2563EB"/>
+                <circle cx="201.2" cy="191.6" r="3" fill="#2563EB"/>
+                <circle cx="110.0" cy="203.7" r="3" fill="#2563EB"/>
+                <circle cx="74.4" cy="107.2" r="3" fill="#2563EB"/>
+
+                <!-- Data: The Kiss Quotient (pink line) -->
+                <!-- Pacing: 65%, Romance: 92%, Literary: 50%, Commercial: 78%, Social: 65% -->
+                <polygon
+                  points="160,70 247.5,106.6 189.4,175.5 114.1,198.1 98.2,115.0"
+                  fill="none"
+                  stroke="#F472B6"
+                  stroke-width="2"
+                />
+                <circle cx="160" cy="70" r="3" fill="#F472B6"/>
+                <circle cx="247.5" cy="106.6" r="3" fill="#F472B6"/>
+                <circle cx="189.4" cy="175.5" r="3" fill="#F472B6"/>
+                <circle cx="114.1" cy="198.1" r="3" fill="#F472B6"/>
+                <circle cx="98.2" cy="115.0" r="3" fill="#F472B6"/>
+
+                <!-- Data: Black Mirror (TV) (gray dashed) -->
+                <!-- Pacing: 80%, Romance: 20%, Literary: 85%, Commercial: 70%, Social: 75% -->
+                <polygon
+                  points="160,55 179.0,128.8 210.0,203.7 118.8,191.6 88.5,111.8"
+                  fill="none"
+                  stroke="#A1A1AA"
+                  stroke-width="1.5"
+                  stroke-dasharray="6 3"
+                />
+                <circle cx="160" cy="55" r="3" fill="#A1A1AA"/>
+                <circle cx="179.0" cy="128.8" r="3" fill="#A1A1AA"/>
+                <circle cx="210.0" cy="203.7" r="3" fill="#A1A1AA"/>
+                <circle cx="118.8" cy="191.6" r="3" fill="#A1A1AA"/>
+                <circle cx="88.5" cy="111.8" r="3" fill="#A1A1AA"/>
+              </svg>
+              <div class="radar-legend">
+                <div class="radar-legend-item">
+                  <span class="radar-legend-line" style="background:#2563EB;"></span>
+                  The Algorithm of Us
+                </div>
+                <div class="radar-legend-item">
+                  <span class="radar-legend-line" style="background:#F472B6;"></span>
+                  The Kiss Quotient
+                </div>
+                <div class="radar-legend-item">
+                  <span class="radar-legend-line dashed"></span>
+                  Black Mirror (TV)
+                </div>
               </div>
             </div>
           </div>
