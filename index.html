@@ -1294,7 +1294,7 @@
     .accuracy .section-title { color: #fff; }
 
     .accuracy-inner {
-      max-width: 800px;
+      max-width: 960px;
       margin: 0 auto;
       text-align: center;
     }
@@ -1334,6 +1334,221 @@
       font-size: 0.85rem;
       color: rgba(255,255,255,0.7);
       line-height: 1.5;
+    }
+
+    /* ── ACCURACY VISUALS ── */
+    .accuracy-visuals {
+      max-width: 900px;
+      margin: 3rem auto 0;
+    }
+
+    /* Big Accuracy Score */
+    .accuracy-hero {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .accuracy-hero .big-number {
+      font-size: clamp(3.5rem, 8vw, 5.5rem);
+      font-weight: 700;
+      color: var(--emerald);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .accuracy-hero .big-label {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.6);
+      margin-top: 0.3rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .accuracy-hero svg {
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Predicted vs Actual Bars */
+    .comparison-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .comparison-card h3 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--emerald);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 140px 1fr auto;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .comparison-row:last-child {
+      border-bottom: none;
+    }
+
+    .comparison-metric {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      text-align: left;
+    }
+
+    .comparison-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .bar-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .bar-label {
+      font-size: 0.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.4);
+      width: 60px;
+      text-align: right;
+    }
+
+    .bar-track {
+      flex: 1;
+      height: 8px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .bar-fill-predicted {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 4px;
+    }
+
+    .bar-fill-actual {
+      height: 100%;
+      background: var(--emerald);
+      border-radius: 4px;
+    }
+
+    .bar-value {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.6);
+      width: 36px;
+    }
+
+    .comparison-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--emerald);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    /* Platform Accuracy Cards */
+    .platform-cards {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 3rem;
+    }
+
+    .platform-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 1.25rem 0.75rem;
+      text-align: center;
+    }
+
+    .platform-card .platform-name {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .platform-card .platform-accuracy {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--emerald);
+    }
+
+    /* Validation Timeline */
+    .validation-timeline {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .validation-timeline h3 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--emerald);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .validation-timeline svg {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 700px;
+    }
+
+    /* Responsive: accuracy visuals */
+    @media (max-width: 900px) {
+      .platform-cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .comparison-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+
+      .comparison-metric {
+        text-align: center;
+      }
+
+      .comparison-badge {
+        justify-self: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .platform-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     /* ── PRICING ── */
@@ -2660,6 +2875,202 @@
           <div class="flow-num">Report Back</div>
           <p>Predicted vs. actual comparison with rolling accuracy score</p>
         </div>
+      </div>
+
+      <!-- Post-Launch Tracking Visuals -->
+      <div class="accuracy-visuals">
+
+        <!-- 1. Big Accuracy Score -->
+        <div class="accuracy-hero fade-up">
+          <div class="big-number">97.3%</div>
+          <div class="big-label">Average Prediction Accuracy</div>
+          <svg width="280" height="60" viewBox="0 0 280 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polyline
+              points="10,48 40,40 80,36 120,28 160,30 200,22 240,18 270,24"
+              stroke="#059669"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              fill="none"
+            />
+            <circle cx="10" cy="48" r="3" fill="#059669"/>
+            <circle cx="40" cy="40" r="3" fill="#059669"/>
+            <circle cx="80" cy="36" r="3" fill="#059669"/>
+            <circle cx="120" cy="28" r="3" fill="#059669"/>
+            <circle cx="160" cy="30" r="3" fill="#059669"/>
+            <circle cx="200" cy="22" r="3" fill="#059669"/>
+            <circle cx="240" cy="18" r="3" fill="#059669"/>
+            <circle cx="270" cy="24" r="3.5" fill="#059669" stroke="#fff" stroke-width="1.5"/>
+            <!-- Labels -->
+            <text x="10" y="58" fill="rgba(255,255,255,0.35)" font-size="7" font-family="Inter, sans-serif" text-anchor="middle">94.1</text>
+            <text x="40" y="58" fill="rgba(255,255,255,0.35)" font-size="7" font-family="Inter, sans-serif" text-anchor="middle">95.8</text>
+            <text x="80" y="58" fill="rgba(255,255,255,0.35)" font-size="7" font-family="Inter, sans-serif" text-anchor="middle">96.2</text>
+            <text x="120" y="58" fill="rgba(255,255,255,0.35)" font-size="7" font-family="Inter, sans-serif" text-anchor="middle">97.1</text>
+            <text x="160" y="58" fill="rgba(255,255,255,0.35)" font-size="7" font-family="Inter, sans-serif" text-anchor="middle">96.9</text>
+            <text x="200" y="58" fill="rgba(255,255,255,0.35)" font-size="7" font-family="Inter, sans-serif" text-anchor="middle">97.8</text>
+            <text x="240" y="58" fill="rgba(255,255,255,0.35)" font-size="7" font-family="Inter, sans-serif" text-anchor="middle">98.1</text>
+            <text x="270" y="58" fill="rgba(255,255,255,0.55)" font-size="7" font-weight="600" font-family="Inter, sans-serif" text-anchor="middle">97.3</text>
+          </svg>
+        </div>
+
+        <!-- 2. Predicted vs Actual Comparison Bars -->
+        <div class="comparison-card fade-up">
+          <h3>Predicted vs Actual</h3>
+
+          <div class="comparison-row">
+            <div class="comparison-metric">Star Rating</div>
+            <div class="comparison-bars">
+              <div class="bar-row">
+                <span class="bar-label">Predicted</span>
+                <div class="bar-track"><div class="bar-fill-predicted" style="width:78%"></div></div>
+                <span class="bar-value">3.9</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">Actual</span>
+                <div class="bar-track"><div class="bar-fill-actual" style="width:76%"></div></div>
+                <span class="bar-value">3.8</span>
+              </div>
+            </div>
+            <div class="comparison-badge">97.4%</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="comparison-metric">BookTok Pickup</div>
+            <div class="comparison-bars">
+              <div class="bar-row">
+                <span class="bar-label">Predicted</span>
+                <div class="bar-track"><div class="bar-fill-predicted" style="width:78%"></div></div>
+                <span class="bar-value">78%</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">Actual</span>
+                <div class="bar-track"><div class="bar-fill-actual" style="width:81%"></div></div>
+                <span class="bar-value">81%</span>
+              </div>
+            </div>
+            <div class="comparison-badge">96.2%</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="comparison-metric">Purchase Intent</div>
+            <div class="comparison-bars">
+              <div class="bar-row">
+                <span class="bar-label">Predicted</span>
+                <div class="bar-track"><div class="bar-fill-predicted" style="width:67%"></div></div>
+                <span class="bar-value">67%</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">Actual</span>
+                <div class="bar-track"><div class="bar-fill-actual" style="width:64%"></div></div>
+                <span class="bar-value">64%</span>
+              </div>
+            </div>
+            <div class="comparison-badge">95.5%</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="comparison-metric">DNF Rate</div>
+            <div class="comparison-bars">
+              <div class="bar-row">
+                <span class="bar-label">Predicted</span>
+                <div class="bar-track"><div class="bar-fill-predicted" style="width:12%"></div></div>
+                <span class="bar-value">12%</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">Actual</span>
+                <div class="bar-track"><div class="bar-fill-actual" style="width:11%"></div></div>
+                <span class="bar-value">11%</span>
+              </div>
+            </div>
+            <div class="comparison-badge">99.1%</div>
+          </div>
+
+          <div class="comparison-row">
+            <div class="comparison-metric">Controversy Risk</div>
+            <div class="comparison-bars">
+              <div class="bar-row">
+                <span class="bar-label">Predicted</span>
+                <div class="bar-track"><div class="bar-fill-predicted" style="width:15%"></div></div>
+                <span class="bar-value">Low</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">Actual</span>
+                <div class="bar-track"><div class="bar-fill-actual" style="width:15%"></div></div>
+                <span class="bar-value">Low</span>
+              </div>
+            </div>
+            <div class="comparison-badge">100%</div>
+          </div>
+        </div>
+
+        <!-- 3. Platform Accuracy Cards -->
+        <div class="platform-cards">
+          <div class="platform-card fade-up">
+            <div class="platform-name">Goodreads</div>
+            <div class="platform-accuracy">98.1%</div>
+          </div>
+          <div class="platform-card fade-up">
+            <div class="platform-name">BookTok</div>
+            <div class="platform-accuracy">96.4%</div>
+          </div>
+          <div class="platform-card fade-up">
+            <div class="platform-name">Amazon</div>
+            <div class="platform-accuracy">97.8%</div>
+          </div>
+          <div class="platform-card fade-up">
+            <div class="platform-name">Reddit</div>
+            <div class="platform-accuracy">95.9%</div>
+          </div>
+          <div class="platform-card fade-up">
+            <div class="platform-name">Bookstagram</div>
+            <div class="platform-accuracy">97.2%</div>
+          </div>
+          <div class="platform-card fade-up">
+            <div class="platform-name">StoryGraph</div>
+            <div class="platform-accuracy">96.8%</div>
+          </div>
+        </div>
+
+        <!-- 4. Validation Timeline -->
+        <div class="validation-timeline fade-up">
+          <h3>Validation Timeline</h3>
+          <svg viewBox="0 0 700 100" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <!-- Timeline line -->
+            <line x1="60" y1="45" x2="640" y2="45" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+
+            <!-- Segment highlights -->
+            <line x1="60" y1="45" x2="253" y2="45" stroke="#059669" stroke-width="2" opacity="0.4"/>
+            <line x1="253" y1="45" x2="447" y2="45" stroke="#059669" stroke-width="2" opacity="0.6"/>
+            <line x1="447" y1="45" x2="640" y2="45" stroke="#059669" stroke-width="2" opacity="0.8"/>
+
+            <!-- Point 1: Forecast Delivered -->
+            <circle cx="60" cy="45" r="8" fill="#020617" stroke="#059669" stroke-width="2.5"/>
+            <circle cx="60" cy="45" r="3" fill="#059669"/>
+            <text x="60" y="22" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="600" font-family="Inter, sans-serif" text-anchor="middle">Forecast Delivered</text>
+            <text x="60" y="72" fill="rgba(255,255,255,0.4)" font-size="9" font-family="Inter, sans-serif" text-anchor="middle">Jan 15</text>
+
+            <!-- Point 2: Book Launched -->
+            <circle cx="253" cy="45" r="8" fill="#020617" stroke="#059669" stroke-width="2.5"/>
+            <circle cx="253" cy="45" r="3" fill="#059669"/>
+            <text x="253" y="22" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="600" font-family="Inter, sans-serif" text-anchor="middle">Book Launched</text>
+            <text x="253" y="72" fill="rgba(255,255,255,0.4)" font-size="9" font-family="Inter, sans-serif" text-anchor="middle">Feb 28</text>
+
+            <!-- Point 3: 30-Day Check -->
+            <circle cx="447" cy="45" r="8" fill="#020617" stroke="#059669" stroke-width="2.5"/>
+            <circle cx="447" cy="45" r="3" fill="#059669"/>
+            <text x="447" y="22" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="600" font-family="Inter, sans-serif" text-anchor="middle">30-Day Check</text>
+            <text x="447" y="72" fill="rgba(255,255,255,0.4)" font-size="9" font-family="Inter, sans-serif" text-anchor="middle">Mar 30</text>
+            <text x="447" y="88" fill="#059669" font-size="10" font-weight="700" font-family="Inter, sans-serif" text-anchor="middle">96.1% accuracy</text>
+
+            <!-- Point 4: 60-Day Report -->
+            <circle cx="640" cy="45" r="8" fill="#020617" stroke="#059669" stroke-width="2.5"/>
+            <circle cx="640" cy="45" r="3" fill="#059669"/>
+            <text x="640" y="22" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="600" font-family="Inter, sans-serif" text-anchor="middle">60-Day Report</text>
+            <text x="640" y="72" fill="rgba(255,255,255,0.4)" font-size="9" font-family="Inter, sans-serif" text-anchor="middle">Apr 30</text>
+            <text x="640" y="88" fill="#059669" font-size="10" font-weight="700" font-family="Inter, sans-serif" text-anchor="middle">97.3% accuracy</text>
+          </svg>
+        </div>
+
       </div>
     </div>
   </section>
