@@ -261,6 +261,75 @@
       margin-top: 0.25rem;
     }
 
+    /* ── WHY IT MATTERS ── */
+    .why-it-matters {
+      background: var(--white);
+      text-align: center;
+    }
+
+    .why-intro {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      line-height: 1.8;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .why-card {
+      padding: 2rem 1.5rem;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      text-align: center;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .why-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 24px rgba(37, 99, 235, 0.08);
+    }
+
+    .why-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 1.25rem;
+      font-weight: 700;
+      border-radius: 12px;
+      margin-bottom: 1.25rem;
+    }
+
+    .why-card p {
+      font-size: 0.95rem;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .why-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* ── SECTION BASE ── */
     section {
       padding: 6rem 2rem;
@@ -1554,7 +1623,7 @@
     <div class="hero-inner">
       <div class="hero-badge">Pre-Publication Intelligence Platform</div>
       <h2>Predictive Reader Intelligence<br>Before Your First <em>ARC</em> Goes Out</h2>
-      <p class="hero-sub">Simulate thousands of readers reacting to your manuscript across Goodreads, Amazon, BookTok, Bookstagram, StoryGraph, Reddit, and X. Know how your book will perform — before you spend a dollar on marketing.</p>
+      <p class="hero-sub">Forecast how readers are likely to respond to your manuscript across Goodreads, BookTok, Reddit, and more — before you commit to launch strategy, outreach, or marketing spend.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btn btn-primary btn-large">Request a Demo</a>
         <a href="#how" class="btn btn-outline btn-large">See How It Works</a>
@@ -1574,7 +1643,34 @@
         </div>
         <div class="proof-stat">
           <div class="number">0</div>
-          <div class="label">Data Retained</div>
+          <div class="label">Zero Retention</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY IT MATTERS -->
+  <section class="why-it-matters">
+    <div class="section-inner" style="text-align:center;">
+      <p class="section-label">Why It Matters</p>
+      <h2 class="section-title">Why It Matters</h2>
+      <p class="why-intro">Before publishers spend on ARCs, influencer outreach, paid marketing, or positioning, Galley Forecast helps answer four critical questions:</p>
+      <div class="why-grid">
+        <div class="why-card fade-up">
+          <div class="why-icon">?</div>
+          <p>Who is this book really for?</p>
+        </div>
+        <div class="why-card fade-up">
+          <div class="why-icon">?</div>
+          <p>How will readers likely respond?</p>
+        </div>
+        <div class="why-card fade-up">
+          <div class="why-icon">?</div>
+          <p>What risks should we address before launch?</p>
+        </div>
+        <div class="why-card fade-up">
+          <div class="why-icon">?</div>
+          <p>What should we change before the market sees it?</p>
         </div>
       </div>
     </div>
@@ -1590,12 +1686,12 @@
         <div class="step fade-up">
           <div class="step-number">1</div>
           <h3>Upload Your Manuscript</h3>
-          <p>Upload an EPUB, PDF, or Word document. Our system extracts themes, narrative structure, character dynamics, and genre signals — then immediately destroys the source file.</p>
+          <p>Upload an EPUB, PDF, or Word document. We analyze narrative structure, themes, pacing, character dynamics, and genre signals — then destroy the source file after processing.</p>
         </div>
         <div class="step fade-up">
           <div class="step-number">2</div>
           <h3>Simulate Your Audience</h3>
-          <p>Thousands of AI reader personas — each with unique tastes, reading habits, and review styles — independently react to your book. Then they react to each other, creating authentic social dynamics.</p>
+          <p>We generate a large synthetic audience modeled around different reading tastes, review styles, and platform behaviors to forecast likely reception patterns.</p>
         </div>
         <div class="step fade-up">
           <div class="step-number">3</div>
@@ -1605,7 +1701,7 @@
         <div class="step fade-up">
           <div class="step-number">4</div>
           <h3>Act on Your Playbook</h3>
-          <p>We don't just hand you data — we tell you exactly what to do next. Specific manuscript adjustments, influencer outreach strategy, optimal launch timing, and marketing angle recommendations tailored to your book's unique strengths.</p>
+          <p>You receive a practical playbook with recommended positioning, influencer targets, launch angles, and manuscript considerations based on your forecast.</p>
         </div>
       </div>
     </div>
@@ -1631,12 +1727,12 @@
         <div class="feature-card fade-up">
           <div class="feature-icon">&#8599;</div>
           <h3>Influencer &amp; Publisher Matching</h3>
-          <p>Discover which real BookTok creators, bookstagrammers, and reviewers have the highest audience overlap with your title. Plus publisher recommendations for indie authors.</p>
+          <p>Identify the communities, creators, and review ecosystems most likely to respond to your title. Plus publisher recommendations for indie authors.</p>
         </div>
         <div class="feature-card fade-up">
           <div class="feature-icon">&#9888;</div>
           <h3>Controversy &amp; Sensitivity Radar</h3>
-          <p>Flag potential backlash vectors, sensitivity concerns, and polarizing elements before they become public. Address issues on your terms, not Twitter's.</p>
+          <p>Flag polarizing themes, sensitivity concerns, and backlash vectors before they shape the conversation publicly.</p>
         </div>
         <div class="feature-card fade-up">
           <div class="feature-icon">&#9998;</div>
@@ -1658,6 +1754,7 @@
       <p class="section-label">Sample Forecast</p>
       <h2 class="section-title">What a Report Looks Like</h2>
       <p class="section-desc">Here's a preview of the intelligence delivered for a sample title.</p>
+      <p style="font-size:0.78rem;color:var(--mid-gray);font-style:italic;margin-top:0.75rem;">Illustrative forecast sample — actual reports will vary based on manuscript analysis</p>
       <div class="report-grid">
         <!-- TOP: Charts & Metrics -->
         <div class="report-charts-row fade-up">
@@ -1948,7 +2045,7 @@
       <div class="privacy-grid">
         <div>
           <p class="section-label">Data Protection</p>
-          <h2 class="section-title">Your Manuscript Is Sacred.<br>We Treat It That Way.</h2>
+          <h2 class="section-title">Your Manuscript Is Sensitive IP.<br>We Treat It That Way.</h2>
           <div class="privacy-points">
             <div class="privacy-point fade-up">
               <div class="privacy-check">&check;</div>
@@ -1993,7 +2090,7 @@
   <section class="accuracy" id="accuracy">
     <div class="accuracy-inner">
       <p class="section-label">Post-Launch Tracking</p>
-      <h2 class="section-title">We Prove Our Predictions</h2>
+      <h2 class="section-title">Forecasts Backed by Real-World Validation</h2>
       <p class="accuracy-desc">Galley Forecast doesn't stop at prediction. Our Publisher Pro tier includes post-launch reception tracking that compares our forecast to real-world results — building a transparent accuracy record you can trust.</p>
       <div class="accuracy-flow">
         <div class="flow-step fade-up">
@@ -2025,9 +2122,9 @@
       <div class="pricing-grid">
         <div class="price-card fade-up">
           <div class="price-tier">Starter</div>
-          <div class="price-name">Quick Read</div>
+          <div class="price-name">Concept Scan</div>
           <p class="price-desc">A fast viability check for your manuscript concept.</p>
-          <div class="price-amount">Free</div>
+          <div class="price-amount">$99 <span>/ scan</span></div>
           <ul class="price-features">
             <li>Genre fit analysis</li>
             <li>Basic sentiment score</li>
@@ -2040,7 +2137,7 @@
           <div class="price-tier">Professional</div>
           <div class="price-name">Full Forecast</div>
           <p class="price-desc">Complete predictive intelligence for a single title.</p>
-          <div class="price-amount">$199 <span>/ title</span></div>
+          <div class="price-amount">$499 <span>/ title</span></div>
           <ul class="price-features">
             <li>10,000 simulated readers</li>
             <li>Star rating predictions</li>
